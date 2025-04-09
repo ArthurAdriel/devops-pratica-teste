@@ -10,8 +10,7 @@ def testar_total_vendas():
     resultado = calcular_total_vendas(vendas_mensais)  # Executa o cálculo com os dados atuais
 
     # Define os limites esperados para o total de vendas
-    limite_minimo = 5000
-    limite_maximo = 10000
+    vendas_mensais = [100, 100, 400] # Total 2400 (Fora da faixa de 5000 a 10000)
 
     # Se o resultado estiver dentro da faixa, o teste passa
     if limite_minimo <= resultado <= limite_maximo:
