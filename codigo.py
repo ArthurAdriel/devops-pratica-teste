@@ -1,26 +1,15 @@
-# Importa a função de cálculo e os dados de vendas do arquivo 'codigo.py'
-from codigo import calcular_total_vendas, vendas_mensais
+# Lista com os valores de vendas realizadas em cada semana do mês
+vendas_mensais = [1000, 2000, 3000]
 
-# Importa a biblioteca 'sys', que permite encerrar o programa com códigos de erro
-# Isso é importante para o GitHub Actions identificar falhas
-import sys
+# Função que recebe uma lista de valores e retorna a soma total
+def calcular_total_vendas(vendas):
+    return sum(vendas)  # Soma todos os valores da lista e retorna o total
 
-# Define uma função de teste para validar o total de vendas
-def testar_total_vendas():
-    resultado = calcular_total_vendas(vendas_mensais)  # Executa o cálculo com os dados atuais
+# Função que gera um relatório simples com o total de vendas
+def gerar_relatorio():
+    total = calcular_total_vendas(vendas_mensais)  # Chama a função para calcular o total
+    print("Relatório de vendas - Março")            # Exibe o título do relatório
+    print("Total de vendas: R$", total)             # Exibe o valor total calculado
 
-    # Define os limites esperados para o total de vendas
-    limite_minimo = 5000
-    limite_maximo = 10000
-
-    # Se o resultado estiver dentro da faixa, o teste passa
-    if limite_minimo <= resultado <= limite_maximo:
-        print("✅ Teste passou! Total de vendas dentro da faixa esperada.")
-    else:
-        # Se o resultado estiver fora da faixa, o teste falha
-        # O sys.exit(1) encerra o programa com erro, o que sinaliza falha no GitHub Actions
-        print("❌ Teste falhou! Valor fora da faixa. Resultado obtido:", resultado)
-        sys.exit(1)
-
-# Executa a função de teste automaticamente ao rodar este arquivo
-testar_total_vendas()
+# Chamada da função principal para executar o relatório
+gerar_relatorio()
